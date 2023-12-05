@@ -1,0 +1,16 @@
+<h1>Received Letters</h1>
+
+<% if @received_letters.any? %>
+  <ul>
+    <% @received_letters.each do |letter| %>
+      <li>
+        From: <%= letter.sender.email %><br>
+        Posted at <%= letter.created_at.strftime("%d %B %Y") %>
+        <p><%= letter.content %></p>
+        <%# Add more letter details as needed %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No letters received.</p>
+<% end %>

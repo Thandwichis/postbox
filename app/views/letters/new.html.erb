@@ -1,0 +1,21 @@
+<h1>Send a Letter</h1>
+
+<%= form_with model: @letter, url: letters_path do |form| %>
+
+  <div class="field">
+    <%= form.label :receiver_id, 'Recipient' %>
+    <%= form.collection_select :receiver_id, User.all, :id, :email, prompt: 'Select a Recipient' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  
+
+  <div class="actions">
+    <%= form.submit 'Send Letter' %>
+  </div>
+
+<% end %>
