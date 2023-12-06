@@ -1,17 +1,38 @@
 <h1>Received Letters</h1>
+<div class="container">
+  <% if @unread_letters.any? %>
+    <h2>Unread Letters</h2>
+    <ul>
+      <% @unread_letters.each do |letter| %>
+        <%= link_to letter_path(letter), class: 'envelope-link' do %>
+          <li class="envelope">
+            <div class="envelope-info">
+              <strong>From:</strong> <%= letter.sender.username %><br>
+              <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
 
-<% if @received_letters.any? %>
-  <ul>
-    <% @received_letters.each do |letter| %>
-      <li class="envelope">
-        <div class="envelope-info">
-          <strong>From:</strong> <%= link_to letter.sender.email, letter_path(letter) %><br>
-          <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
-          <!-- Add more letter information here if needed -->
-        </div>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>You have no letters.</p>
-<% end %>
+  <% if @read_letters.any? %>
+    <h2>Read Letters</h2>
+    <ul>
+      <% @read_letters.each do |letter| %>
+        <%= link_to letter_path(letter), class: 'envelope-link' do %>
+          <li class="envelope">
+            <div class="envelope-info">
+              <strong>From:</strong> <%= letter.sender.username %><br>
+              <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% unless @unread_letters.any? || @read_letters.any? %>
+    <p>You have no letters.</p>
+  <% end %>
+</div>

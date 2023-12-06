@@ -1,7 +1,7 @@
 <% if @letter.read_at %>
       <span>Read at <%= @letter.read_at.strftime("%d %B %Y %H:%M") %></span>
-    <% else %>
-      <span>Unread</span>
+  
+
     <% end %>
 <p>
 
@@ -33,6 +33,7 @@
 
 
 <%= link_to 'Back to Inbox', letters_path %>
+<br>
 <% if current_user == @letter.receiver %>
   <%= button_to 'Delete Letter', letter_path(@letter), 
       method: :delete, 
