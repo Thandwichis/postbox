@@ -1,33 +1,51 @@
 class LettersController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_letter, only: [:show]
+  before_action :set_letter, only: [:show, :destroy]
   def new
     @letter = Letter.new
   end
 
   def create
     @letter = current_user.sent_letters.build(letter_params)
-    @letter.delivery_time = 1.minute.from_now
+    # Set receiver_username here if necessary, for example:
+    # receiver = User.find_by(username: params[:letter][:receiver_username])
+    # @letter.receiver_id = receiver.id if receiver
+  
     @letter.status = 'pending'
-
+    @letter.delivery_time = Time.zone.now + 15.seconds
+  
     if @letter.save
-      SendLetterJob.set(wait: 1.minute).perform_later(@letter)
-      redirect_to @letter, notice: 'Letter was successfully created and will be sent in one minute.'
+      SendLetterJob.set(wait: 15.seconds).perform_later(@letter.id)
+      redirect_to root_path, notice: 'Letter was successfully created and will be sent in two minutes.'
     else
       render :new
     end
   end
+  
+  
 
   def show
     # Redirect user if they're not the recipient of the letter
     redirect_to(root_path, alert: 'You do not have permission to view this letter.') unless current_user == @letter.receiver
+    # Assuming @letter is set using a before_action
+    if current_user == @letter.receiver && @letter.read_at.nil?
+      @letter.update(read_at: Time.current)
+    end
   end
 
 
   def index
-    @received_letters = current_user.received_letters
+    # Only show letters that have been delivered
+    @received_letters = current_user.received_letters.where(status: 'delivered').order(created_at: :desc)
   end
+
+  def destroy
+      @letter.destroy
+      redirect_to letters_path, notice: 'Letter was successfully deleted.'
+
+  end
+  
 
   private
   
@@ -35,8 +53,9 @@ class LettersController < ApplicationController
     @letter = Letter.friendly.find(params[:id])
   end
   
+
+  
   def letter_params
-    params.require(:letter).permit(:receiver_id, :content)
-    # delivery_time is not permitted from params, as it's set automatically
+    params.require(:letter).permit(:content,:receiver_id)
   end
 end

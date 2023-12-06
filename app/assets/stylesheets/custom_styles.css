@@ -1,0 +1,93 @@
+/* custom_styles.css */
+
+body {
+    background-color: #D8B297;
+    font-family: 'Lato', sans-serif;
+}
+.letter-container {
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 500px; /* or any other suitable width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    color: #ffffff; /* Secondary color */
+    text-decoration: none; /* Optional: removes underline from links */
+}
+strong{
+    color: #41708C;
+}
+a:hover {
+    color: #000000; /* Slightly darker shade for hover, or choose another color */
+}
+
+.primary-text {
+    color: #000000;
+}
+
+
+.secondary-text {
+    color: #528CA2;
+}
+
+.notice-text {
+    color: #41708c;
+}
+.envelope {
+    background-color: #f3f3f3; /* Envelope color */
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    height: 40%;
+    background-color: #fff;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 5px;
+}
+
+.envelope-info {
+    position: relative;
+    z-index: 2; /* Above the :before pseudo-element */
+}
+
+.envelope li {
+    list-style-type: none; /* Remove default list styling */
+}
+
+/* Base styles for images */
+.link-images img {
+    max-width: 100%; /* Responsive images */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Mobile view: smaller images */
+  @media (max-width: 767px) {
+    .link-images img {
+      width: 150px; /* Adjust the size as needed for mobile */
+    }
+  }
+  
+  /* Desktop view: larger images */
+  @media (min-width: 768px) {
+    .link-images img {
+      width: 300px; /* Adjust the size as needed for desktop */
+    }
+  }
+  
+  

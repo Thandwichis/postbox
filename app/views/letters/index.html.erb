@@ -3,14 +3,15 @@
 <% if @received_letters.any? %>
   <ul>
     <% @received_letters.each do |letter| %>
-      <li>
-        From: <%= letter.sender.email %><br>
-        Posted at <%= letter.created_at.strftime("%d %B %Y") %>
-        <p><%= letter.content %></p>
-        <%# Add more letter details as needed %>
+      <li class="envelope">
+        <div class="envelope-info">
+          <strong>From:</strong> <%= link_to letter.sender.email, letter_path(letter) %><br>
+          <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
+          <!-- Add more letter information here if needed -->
+        </div>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>No letters received.</p>
+  <p>You have no letters.</p>
 <% end %>
