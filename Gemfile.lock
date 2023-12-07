@@ -182,6 +182,8 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
     redis-client (0.18.0)
       connection_pool
     regexp_parser (2.8.3)
@@ -252,6 +254,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 7.0.8)
+  redis
   selenium-webdriver
   sidekiq
   sprockets-rails
