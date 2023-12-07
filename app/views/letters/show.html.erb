@@ -1,9 +1,11 @@
-<div class="letter-container">
-  <% if @letter.read_at %>
+<% if @letter.read_at %>
     <div class="letter-details">
       <span>Read at <%= @letter.read_at.strftime("%d %B %Y %H:%M") %></span>
     </div>
   <% end %>
+
+<div class="letter-container">
+  
 
   <div class="letter-details">
     <strong>From:</strong>

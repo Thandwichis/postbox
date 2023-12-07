@@ -17,7 +17,7 @@ class LettersController < ApplicationController
     @letter.expires_at = 1.week.from_now
     if @letter.save
       SendLetterJob.set(wait: 15.seconds).perform_later(@letter.id)
-      redirect_to root_path, notice: 'Letter was successfully created and will be sent in two minutes.'
+      redirect_to root_path, notice: 'Letter was successfully created and will be sent in 15 seconds.'
     else
       render :new
     end
