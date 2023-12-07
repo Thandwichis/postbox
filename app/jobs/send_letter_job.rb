@@ -1,4 +1,6 @@
 class SendLetterJob < ApplicationJob
+  include Sidekiq::Worker
+
   queue_as :default
 
   def perform(letter_id)
