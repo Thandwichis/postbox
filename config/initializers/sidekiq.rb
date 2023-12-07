@@ -1,17 +1,10 @@
-# Sidekiq configuration file (config/sidekiq.yml)
+# config/initializers/sidekiq.rb
 
-# Concurrency settings
-:concurrency: 5
-
-# Redis server location
-:queues:
-  - default
-
-# Redis configuration
-production:
-  :url: <%= ENV['REDISCLOUD_URL']%>
+Sidekiq.configure_server do |config|
+    config.redis = { url: ENV['REDISCLOUD_URL'] || 'redis://localhost:6379/0' }
+  end
   
-development:
-  :url: redis://localhost:6379/0
-
-# You can add more environment specific settings if required
+  Sidekiq.configure_client do |config|
+    config.redis = { url: ENV['REDISCLOUD_URL'] || 'redis://localhost:6379/0' }
+  end
+  
