@@ -2,23 +2,20 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres          # Your PostgreSQL username
-  password: Cwl123141!!    # The password you set during installation
-  host: localhost
 
 development:
   <<: *default
   database: postbox_development
+  username: postgres
+  password: your_development_password
+  host: localhost
 
 test:
   <<: *default
   database: postbox_test
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: postbox
-  username: collinwilliamlewis@gmail.com
-  password: Cwl123141!!
+  username: postgres
+  password: your_test_password
   host: localhost
 
+production:
+  url: <%= ENV['DATABASE_URL'] %>
