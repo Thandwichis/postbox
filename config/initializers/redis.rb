@@ -1,4 +1,4 @@
-if ENV["REDISCLOUD_URL"]
-    $redis = Redis.new(url: ENV["REDISCLOUD_URL"])
+if ENV["OPENREDIS_URL"]
+    $redis = Redis.new(url: ENV["OPENREDIS_URL"])
   end
   

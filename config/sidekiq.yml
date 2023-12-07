@@ -1,4 +1,4 @@
 :concurrency: 5
 :queues:
   - default
-:url: <%= ENV["REDISCLOUD_URL"] %>
+:url: <%= ENV["OPENREDIS_URL"] %>
