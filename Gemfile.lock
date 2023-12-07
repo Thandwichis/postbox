@@ -254,7 +254,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 7.0.8)
-  redis
+  redis (~> 5.0.8)
   selenium-webdriver
   sidekiq
   sprockets-rails
