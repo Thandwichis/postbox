@@ -14,7 +14,7 @@ class LettersController < ApplicationController
   
     @letter.status = 'pending'
     @letter.delivery_time = Time.zone.now + 15.seconds
-  
+    @letter.expires_at = 1.week.from_now
     if @letter.save
       SendLetterJob.set(wait: 15.seconds).perform_later(@letter.id)
       redirect_to root_path, notice: 'Letter was successfully created and will be sent in two minutes.'
@@ -22,7 +22,14 @@ class LettersController < ApplicationController
       render :new
     end
   end
-  
+  def self.delete_expired
+    Letter.where('expires_at < ? AND saved = ?', Time.current, false).destroy_all
+  end
+  def toggle_save
+    @letter = Letter.find(params[:id])
+    @letter.update(saved: !@letter.saved)
+    redirect_to letter_path(@letter)
+  end
   
 
   def show
@@ -44,7 +51,13 @@ class LettersController < ApplicationController
 
 
   end
-
+  def open_letter
+    @letter = Letter.friendly.find(params[:id])
+    # Logic to mark the letter as read, if appropriate
+    if current_user == @letter.receiver && @letter.read_at.nil?
+      @letter.update(read_at: Time.current)
+    end
+  end
   def destroy
       @letter.destroy
       redirect_to letters_path, notice: 'Letter was successfully deleted.'

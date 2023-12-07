@@ -48,7 +48,7 @@ gem 'delayed_job_active_record'
 gem 'friendly_id', '~> 5.4.0'
 gem 'sidekiq'
 
-
+gem 'whenever', require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 

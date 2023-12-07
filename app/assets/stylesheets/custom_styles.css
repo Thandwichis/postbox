@@ -6,14 +6,24 @@ body {
 }
 
 .letter-container {
-    background-color: white;
-    padding: 20px;
-    margin: 10px auto; /* Centered horizontally */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    max-width: 500px;
+    background-color: white; /* Paper color */
+    width: 425px; /* Adjust width as needed */
+    height: 550px; /* Adjust height as needed */
+    margin: 20px auto; /* Centered horizontally with some margin */
+    padding: 40px; /* Padding inside the container */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional shadow for effect */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+    font-family: 'Lato', sans-serif; /* Maintain consistent font */
 }
+
+.letter-details {
+    margin-bottom: 20px; /* Space between detail sections */
+}
+
+.letter-content {
+    white-space: pre-line; /* Respect line breaks in content */
+}
+
 
 a {
     color: #41708c;
@@ -40,39 +50,89 @@ a:hover {
     color: #41708c;
 }
 
-.envelope {
-    background-color: #f3f3f3;
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.envelope:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 60%;
-    height: 40%;
-    background-color: #fff;
-    transform: translate(-50%, -50%) rotate(45deg);
-    border-radius: 5px;
-}
-.envelope-link {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit text color */
+/* Styles for unread letters list */
+.envelope-list {
+    list-style-type: none;
+    padding: 0;
   }
-.envelope-info {
-    position: relative;
+  
+  /* Styles for individual envelopes */
+  .index-envelope {
+      background-color: #528CA2;
+      width: 320px; /* Adjust width as needed */
+      height: 200px; /* Adjust height as needed */
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; /* Change cursor on hover */
+  }
+  .index-envelope::after {
+    content: '';
+    position: absolute;
+    top: 10px; /* Adjust as necessary */
+    right: 10px; /* Adjust as necessary */
+    width: 50px; /* Size of the stamp */
+    height: 50px; /* Size of the stamp */
+    background-image: url('postage_stamp_one_penny.png'); /* Path to your stamp image */
+    background-size: cover;
     z-index: 2;
 }
+  
+  .index-envelope-info {
+      text-align: center;
+      position: absolute;
+      z-index: 2;
+  }
+  
+  .envelope-link {
+      text-decoration: none; /* Remove underline from links */
+      color: inherit; /* Inherit text color */
+  }
+/* Styles for unread letters list */
+.envelope-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Styles for read letters list */
+  .paper-list {
+    display: flex;
+    overflow-x: auto; /* Horizontal scrolling */
+    padding-bottom: 20px;
+  }
+  
+  .paper-sheet {
+    background-color: white;
+    width: 425px;
+    height:550px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in width and height */
+  }
+  
+  .paper-link {
+    text-decoration: none;
+    color: #41708c;
+  }
+  
+  .paper-link:hover {
+    color: #000000;
+  }
+  
 
-.envelope li {
+.index-envelope li {
     list-style-type: none;
 }
+
+
 
 /* Styles for images */
 .link-images {

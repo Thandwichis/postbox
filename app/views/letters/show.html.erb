@@ -1,42 +1,38 @@
-<% if @letter.read_at %>
-      <span>Read at <%= @letter.read_at.strftime("%d %B %Y %H:%M") %></span>
-  
-
-    <% end %>
-<p>
-
 <div class="letter-container">
+  <% if @letter.read_at %>
+    <div class="letter-details">
+      <span>Read at <%= @letter.read_at.strftime("%d %B %Y %H:%M") %></span>
+    </div>
+  <% end %>
 
+  <div class="letter-details">
+    <strong>From:</strong>
+    <%= @letter.sender.username %>
+  </div>
 
+  <div class="letter-details">
+    <strong>To:</strong>
+    <%= @letter.receiver.username %>
+  </div>
 
-  <strong>From:</strong>
-  <%= @letter.sender.email %>
-</p>
+  <div class="letter-details">
+    <strong>Sent At:</strong>
+    <%= @letter.created_at.strftime("%d %B %Y %H:%M") %>
+  </div>
 
-<p>
-  <strong>To:</strong>
-  <%= @letter.receiver.email %>
-</p>
+  <div class="letter-content">
+    <%= @letter.content %>
+  </div>
 
-<p>
-  <strong>Sent At:</strong>
-  <%= @letter.created_at.strftime("%d %B %Y %H:%M") %>
-</p>
-
-
-<p>
-  <%= @letter.content %>
-</p>
-
-
+  
 </div>
-
-
 <%= link_to 'Back to Inbox', letters_path %>
-<br>
-<% if current_user == @letter.receiver %>
-  <%= button_to 'Delete Letter', letter_path(@letter), 
-      method: :delete, 
-      data: { confirm: 'Are you sure you want to delete this letter?' }, 
-      class: 'btn btn-danger' %>
-<% end %>
+  
+  <% if current_user == @letter.receiver %>
+  <br>
+  <br>
+    <%= button_to 'Delete Letter', letter_path(@letter), 
+        method: :delete, 
+        data: { confirm: 'Are you sure you want to delete this letter?' }, 
+        class: 'btn btn-danger' %>
+  <% end %>

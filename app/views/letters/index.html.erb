@@ -2,11 +2,11 @@
 <div class="container">
   <% if @unread_letters.any? %>
     <h2>Unread Letters</h2>
-    <ul>
+    <ul class="envelope-list">
       <% @unread_letters.each do |letter| %>
-        <%= link_to letter_path(letter), class: 'envelope-link' do %>
-          <li class="envelope">
-            <div class="envelope-info">
+        <%= link_to open_letter_path(letter), class: 'envelope-link' do %>
+          <li class="index-envelope">
+            <div class="index-envelope-info">
               <strong>From:</strong> <%= letter.sender.username %><br>
               <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
             </div>
@@ -18,18 +18,16 @@
 
   <% if @read_letters.any? %>
     <h2>Read Letters</h2>
-    <ul>
+    <div class="paper-list">
       <% @read_letters.each do |letter| %>
-        <%= link_to letter_path(letter), class: 'envelope-link' do %>
-          <li class="envelope">
-            <div class="envelope-info">
-              <strong>From:</strong> <%= letter.sender.username %><br>
-              <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
-            </div>
-          </li>
+        <%= link_to letter_path(letter), class: 'paper-link' do %>
+          <div class="paper-sheet">
+            <strong>From:</strong> <%= letter.sender.username %><br>
+            <p><%= letter.content.truncate(20) %></p>
+          </div>
         <% end %>
       <% end %>
-    </ul>
+    </div>
   <% end %>
 
   <% unless @unread_letters.any? || @read_letters.any? %>

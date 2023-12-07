@@ -1,0 +1,10 @@
+<div class="envelope-body">
+
+<div class="envelope-container">
+  <input id="flap" type="checkbox">
+  <label class="flap" for="flap"></label>
+  <div class="envelope-back"></div>
+ <%= link_to "From: #{@letter.sender.username}", letter_path(@letter), class: 'card' %>
+  <div class="card-front"></div> 
+</div>
+</div>

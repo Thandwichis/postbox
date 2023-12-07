@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_06_032108) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_07_010724) do
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_06_032108) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.datetime "read_at"
+    t.datetime "expires_at"
+    t.boolean "saved"
     t.index ["slug"], name: "index_letters_on_slug", unique: true
   end
 
