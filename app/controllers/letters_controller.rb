@@ -22,9 +22,9 @@ class LettersController < ApplicationController
       render :new
     end
   end
-  def self.delete_expired
-    Letter.where('expires_at < ? AND saved = ?', Time.current, false).destroy_all
-  end
+  # def self.delete_expired
+  #   Letter.where('expires_at < ? AND saved = ?', Time.current, false).destroy_all
+  # end
   def toggle_save
     @letter = Letter.find(params[:id])
     @letter.update(saved: !@letter.saved)
