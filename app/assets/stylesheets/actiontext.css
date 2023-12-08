@@ -4,11 +4,13 @@
   border-bottom: 1px solid #d1d1d1;
   padding: 8px;
   flex-wrap: wrap; /* Allow toolbar items to wrap */
+  width: 25%;
 }
 
 .trix-button-group {
   margin-right: 5px;
   flex-wrap: wrap; /* Allow buttons within groups to wrap */
+
 }
 
 .trix-button {
