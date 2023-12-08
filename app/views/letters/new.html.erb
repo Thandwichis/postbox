@@ -1,9 +1,9 @@
 <h1>Send a Letter</h1>
 
-<%= form_with(model: @letter, data: { turbo: false }) do |form| %>
+<%= form_with(model: @letter, data: { turbo: false }, class: "letter-form") do |form| %>
   <div class="field">
-    <%= form.label :receiver_id, 'Recipient Address' %>
-    <%= form.collection_select :receiver_id, User.all, :id, :username, prompt: 'Select a Recipient' %>
+    <%= form.label :receiver_id, 'Recipient Address', class: "form-label" %>
+    <%= form.collection_select :receiver_id, User.all, :id, :username, prompt: 'Select a Recipient', class: "form-select" %>
     <% if @letter.errors[:receiver_id].any? %>
       <div class="error">
         <%= @letter.errors.full_messages_for(:receiver_id).join(', ') %>
@@ -11,13 +11,12 @@
     <% end %>
   </div>
 
-   <div class="field">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
+  <div class="field">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.rich_text_area :content, class: "trix-content" %>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Send Letter' %>
+    <%= form.submit 'Send Letter', class: "form-submit" %>
   </div>
-
 <% end %>

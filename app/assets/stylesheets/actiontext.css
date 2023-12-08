@@ -41,9 +41,22 @@
 .trix-content action-text-attachment .attachment {
   padding: 0;
   max-width: 80%;
-  background-color: #f5ecd4; /* Light background for attachments */
   border: 1px solid #ccc; /* Border for attachments */
 }
+/* Hide Image Details in Trix Editor */
+.trix-content action-text-attachment {
+  display: block; /* Ensures attachments are displayed correctly */
+}
+
+.trix-content action-text-attachment::before,
+.trix-content action-text-attachment::after {
+  display: none; /* Hides before and after content (usually metadata) */
+}
+
+.trix-content action-text-attachment figcaption {
+  display: none; /* Hides the caption (if any) under the image */
+}
+
 
 /* Content Styling */
 .trix-content {
