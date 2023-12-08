@@ -156,8 +156,6 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8)
-    rack-proxy (0.7.7)
-      rack
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.8)
@@ -207,7 +205,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    semantic_range (3.0.0)
     sidekiq (7.2.0)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
@@ -239,11 +236,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (5.4.4)
-      activesupport (>= 5.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 5.2)
-      semantic_range (>= 2.3.0)
     websocket (1.2.10)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -258,6 +250,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  actiontext
   bootsnap
   capybara
   debug
@@ -278,7 +271,6 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
-  webpacker (~> 5.0)
   whenever
 
 RUBY VERSION
