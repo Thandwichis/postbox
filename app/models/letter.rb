@@ -6,7 +6,9 @@ class Letter < ApplicationRecord
   
 
   
-
+    def expired?
+      expiration_date.present? && expiration_date < Time.current
+    end
  
     # Add validations as needed, e.g., presence of content
     validates :content, presence: true
