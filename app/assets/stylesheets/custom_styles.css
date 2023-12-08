@@ -8,7 +8,7 @@ body {
 .letter-container {
     background-color: white; /* Paper color */
     width: 425px; /* Adjust width as needed */
-    height: 550px; /* Adjust height as needed */
+    min-height: 550px; /* Adjust height as needed */
     margin: 20px auto; /* Centered horizontally with some margin */
     padding: 40px; /* Padding inside the container */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional shadow for effect */
