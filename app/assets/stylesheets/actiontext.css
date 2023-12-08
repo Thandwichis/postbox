@@ -1,6 +1,6 @@
 /* Trix Editor Enhancements */
 /* Hide specific buttons in the Trix Editor Toolbar */
-.trix-button--icon-code,.trix-button--icon-decrease-level,.trix-button--icon-strikethrough,.trix-button--icon-undo,.trix-button--icon-redo, .trix-button--icon-quote {
+.trix-button--icon-code,.trix-button--icon-strikethrough,.trix-button--icon-decreaselevel,.trix-button--icon-strikethrough,.trix-button--icon-undo,.trix-button--icon-redo, .trix-button--icon-quote {
   display: none;
 }
 
@@ -25,6 +25,7 @@
   color: #333;
   font-size: 14px;
   margin-bottom: 2px; /* Add some space between wrapped buttons */
+  margin-right: 2px; /* Add some space between wrapped buttons */
   flex-wrap: wrap; /* Allow buttons within groups to wrap */
 }
 
