@@ -43,7 +43,7 @@ class LettersController < ApplicationController
     if current_user == @letter.receiver && @letter.read_at.nil?
       @letter.update(read_at: Time.current)
     end
-  end
+  
 end
   # def save_to_shelf
   #   @letter = Letter.find(params[:id])
