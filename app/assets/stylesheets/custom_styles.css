@@ -6,6 +6,7 @@ body {
 }
 
 .letter-container {
+    word-wrap: true;
     background-color: white; /* Paper color */
     min-width: 425px; /* Adjust width as needed */
     max-width: 75%; /* Adjust width as needed */
