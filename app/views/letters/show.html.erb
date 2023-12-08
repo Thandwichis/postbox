@@ -21,20 +21,15 @@
     <strong>Sent At:</strong>
     <%= @letter.created_at.strftime("%d %B %Y %H:%M") %>
   </div>
-  <% if @letter.expiration_date.present? %>
-    <div class="letter-details">
-      <strong>Expiration Date:</strong>
-      <%= @letter.expiration_date.strftime("%d %B %Y %H:%M") %>
-    </div>
-  <% end %>
+ 
 
   <div class="letter-content">
     <%= @letter.content %>
   </div>
    <%# Save to Shelf Button %>
-  <% if current_user == @letter.receiver %>
-    <%= button_to 'Save to Shelf', save_to_shelf_letter_path(@letter), method: :put, class: 'btn btn-primary' %>
-  <% end %>
+  <%# <% if current_user == @letter.receiver %> %>
+    <%#<%= button_to 'Save to Shelf', save_to_shelf_letter_path(@letter), method: :put, class: 'btn btn-primary' %>
+  <%#<% end %>
   
 </div>
 <%= link_to 'Back to Inbox', letters_path %>

@@ -14,7 +14,7 @@ class LettersController < ApplicationController
   
     @letter.status = 'pending'
     @letter.delivery_time = Time.zone.now + 15.seconds
-    @letter.expires_at = 1.week.from_now
+    # @letter.expires_at = 1.week.from_now
     if @letter.save
       SendLetterJob.set(wait: 15.seconds).perform_later(@letter.id)
       redirect_to root_path, notice: 'Letter was successfully created and will be sent in 15 seconds.'
@@ -45,11 +45,11 @@ class LettersController < ApplicationController
     end
   end
 end
-  def save_to_shelf
-    @letter = Letter.find(params[:id])
-    # Logic to save the letter to the shelf
-    redirect_to letter_path(@letter), notice: 'Letter was successfully saved to shelf.'
-  end
+  # def save_to_shelf
+  #   @letter = Letter.find(params[:id])
+  #   # Logic to save the letter to the shelf
+  #   redirect_to letter_path(@letter), notice: 'Letter was successfully saved to shelf.'
+  # end
   
   def index
     # Only show letters that have been delivered
