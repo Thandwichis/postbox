@@ -9,7 +9,7 @@ class Letter < ApplicationRecord
  
     # Add validations as needed, e.g., presence of content
     validates :content, presence: true
-
+    has_rich_text :content
     private
     def randomized_slug
       SecureRandom.uuid
