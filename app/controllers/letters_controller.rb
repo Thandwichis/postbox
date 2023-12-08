@@ -14,7 +14,6 @@ class LettersController < ApplicationController
   
     @letter.status = 'pending'
     @letter.delivery_time = Time.zone.now + 15.seconds
-    # @letter.expires_at = 1.week.from_now
     if @letter.save
       SendLetterJob.set(wait: 15.seconds).perform_later(@letter.id)
       redirect_to root_path, notice: 'Letter was successfully created and will be sent in 15 seconds.'
@@ -22,21 +21,16 @@ class LettersController < ApplicationController
       render :new
     end
   end
-  # def self.delete_expired
-  #   Letter.where('expires_at < ? AND saved = ?', Time.current, false).destroy_all
-  # end
+  
   def toggle_save
-    @letter = Letter.find(params[:id])
+    @letter = Letter.friendly.find(params[:id])
     @letter.update(saved: !@letter.saved)
     redirect_to letter_path(@letter)
   end
   
 
   def show
-    @letter = Letter.find(params[:id])
-  # if @letter.expired?
-  #   redirect_to letters_path, alert: "This letter has expired."
-  # else
+    @letter = Letter.friendly.find(params[:id])
     # Redirect user if they're not the recipient of the letter
     redirect_to(root_path, alert: 'You do not have permission to view this letter.') unless current_user == @letter.receiver
     # Assuming @letter is set using a before_action
@@ -45,11 +39,6 @@ class LettersController < ApplicationController
     end
   
 end
-  # def save_to_shelf
-  #   @letter = Letter.find(params[:id])
-  #   # Logic to save the letter to the shelf
-  #   redirect_to letter_path(@letter), notice: 'Letter was successfully saved to shelf.'
-  # end
   
   def index
     # Only show letters that have been delivered

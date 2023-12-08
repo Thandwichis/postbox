@@ -43,7 +43,7 @@
     justify-content: center;
     font-size:40px;
     font-family: Nanum Brush Script;
-    transition: 1s;
+    transition: .2s;
     z-index:1;
     cursor: pointer;
   }
