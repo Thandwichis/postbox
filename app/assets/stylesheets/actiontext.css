@@ -1,8 +1,16 @@
 /* Trix Editor Enhancements */
 /* Hide specific buttons in the Trix Editor Toolbar */
-.trix-button--icon-code,.trix-button--icon-strikethrough,.trix-button--icon-decreaselevel,.trix-button--icon-strikethrough,.trix-button--icon-undo,.trix-button--icon-redo, .trix-button--icon-quote {
+/* Hide specific buttons in the Trix Editor Toolbar */
+.trix-button--icon-code,
+.trix-button--icon-quote,
+.trix-button--icon-strike,
+.trix-button--icon-link,
+.trix-button--icon-decrease-nesting-level,
+.trix-button--icon-undo,
+.trix-button--icon-redo{
   display: none;
 }
+
 
 
 
