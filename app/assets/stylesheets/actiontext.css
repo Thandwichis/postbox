@@ -1,21 +1,23 @@
 /* Trix Editor Enhancements */
+/* Trix Editor Enhancements */
 .trix-toolbar {
   background-color: #f3f3f3;
   border-bottom: 1px solid #d1d1d1;
   padding: 8px;
+  display: flex; /* Ensure flex display for wrapping */
   flex-wrap: wrap; /* Allow toolbar items to wrap */
-  width: 25%;
 }
 
 .trix-button-group {
   margin-right: 5px;
+  display: inline-flex; /* Ensure button groups are flexible */
   flex-wrap: wrap; /* Allow buttons within groups to wrap */
-
 }
 
 .trix-button {
   color: #333;
   font-size: 14px;
+  margin-bottom: 2px; /* Add some space between wrapped buttons */
 }
 
 .trix-editor {
