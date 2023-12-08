@@ -4,7 +4,7 @@
     </div>
   <% end %>
 
-<div class="letter-container">
+<div class="letter-container"></div>
   
 
   <div class="letter-details">
@@ -23,12 +23,22 @@
   </div>
  
 
-  <div class="letter-content">
-    <%= @letter.content %>
-  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const fullContent = "Your long letter content...";
+        const pages = splitContent(fullContent, 1000); // Adjust 1000 to your needs
+
+        pages.forEach(pageContent => {
+            const pageElement = document.createElement("div");
+            pageElement.classList.add("letter-page");
+            pageElement.innerHTML = pageContent;
+            document.getElementById("letterContent").appendChild(pageElement);
+        });
+    });
+</script>
 
   
-</div>
+
 <%= link_to 'Back to Inbox', letters_path %>
   
   <% if current_user == @letter.receiver %>
