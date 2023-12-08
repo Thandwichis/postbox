@@ -1,31 +1,68 @@
-/*
- * Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
- * the trix-editor content (whether displayed or under editing). Feel free to incorporate this
- * inclusion directly in any other asset bundle and remove this file.
- *
- require trix
-*/
+/* Trix Editor Enhancements */
+.trix-toolbar {
+  background-color: #f3f3f3; /* Light gray background for toolbar */
+  border-bottom: 1px solid #d1d1d1; /* Separator between toolbar and editor */
+  padding: 8px; /* Padding around toolbar items */
+}
 
-/*
- * We need to override trix.css’s image gallery styles to accommodate the
- * <action-text-attachment> element we wrap around attachments. Otherwise,
- * images in galleries will be squished by the max-width: 33%; rule.
-*/
+.trix-button-group {
+  margin-right: 5px; /* Spacing between button groups */
+}
+
+.trix-button {
+  color: #333; /* Darker text for better contrast */
+  font-size: 14px; /* Slightly larger font for readability */
+}
+
+.trix-editor {
+  border: 1px solid #d1d1d1; /* Border around the editor content */
+  padding: 10px; /* Padding inside the editor */
+  min-height: 150px; /* Minimum height for the editor */
+  background-color: #fff; /* White background for the editor content */
+}
+
+/* Image and Gallery Styling */
 .trix-content .attachment-gallery > action-text-attachment,
 .trix-content .attachment-gallery > .attachment {
   flex: 1 0 33%;
-  padding: 0 0.5em;
+  padding: 0.5em; /* Consistent padding around images */
   max-width: 33%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow for depth */
 }
 
 .trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
-.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
 .trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
   flex-basis: 50%;
   max-width: 50%;
 }
 
 .trix-content action-text-attachment .attachment {
-  padding: 0 !important;
-  max-width: 100% !important;
+  padding: 0;
+  max-width: 80%;
+  background-color: #f5ecd4; /* Light background for attachments */
+  border: 1px solid #ccc; /* Border for attachments */
+}
+
+/* Content Styling */
+.trix-content {
+  line-height: 1.6; /* Improved line height for readability */
+  color: #333; /* Darker color for better readability */
+  font-size: 16px; /* Slightly larger font size */
+}
+
+.trix-content p {
+  margin-bottom: 1em; /* Space between paragraphs */
+}
+
+.trix-content a {
+  color: #41708c; /* Style for links */
+  text-decoration: underline; /* Underline links for clarity */
+}
+
+.trix-content ul,
+.trix-content ol {
+  padding-left: 20px; /* Indentation for lists */
+  margin-bottom: 1em; /* Space after lists */
 }
