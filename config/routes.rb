@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 
   resources :letters
   resources :users, only: [:new, :create, :edit, :update, :show]
-
+  resources :letters do
+    member do
+      put :save_to_shelf
+    end
+  end
+  
   get '/letters/:id/open', to: 'letters#open_letter', as: :open_letter
 
   # Defines the root path route ("/")

@@ -33,6 +33,10 @@ class LettersController < ApplicationController
   
 
   def show
+    @letter = Letter.find(params[:id])
+  if @letter.expired?
+    redirect_to letters_path, alert: "This letter has expired."
+  else
     # Redirect user if they're not the recipient of the letter
     redirect_to(root_path, alert: 'You do not have permission to view this letter.') unless current_user == @letter.receiver
     # Assuming @letter is set using a before_action
@@ -40,8 +44,13 @@ class LettersController < ApplicationController
       @letter.update(read_at: Time.current)
     end
   end
-
-
+  
+  def save_to_shelf
+    @letter = Letter.find(params[:id])
+    # Logic to save the letter to the shelf
+    redirect_to letter_path(@letter), notice: 'Letter was successfully saved to shelf.'
+  end
+  
   def index
     # Only show letters that have been delivered
     @received_letters = current_user.received_letters.where(status: 'delivered').order(created_at: :desc)

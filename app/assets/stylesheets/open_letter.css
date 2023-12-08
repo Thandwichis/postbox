@@ -42,8 +42,8 @@
     align-items: top;
     justify-content: center;
     font-size:40px;
-    font-family: Brush Script MT;
-    transition: .1s;
+    font-family: Nanum Brush Script;
+    transition: 1s;
     z-index:1;
     cursor: pointer;
   }
@@ -93,7 +93,7 @@
     top:0;
     left:0;
     cursor: pointer;
-    transition: .3s;
+    transition: 1s;
     transform-origin: top;
     z-index:4;
   }
