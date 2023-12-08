@@ -1,5 +1,8 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 
-import './envelope_animation'import "trix"
+import './envelope_animation'
+import "trix"
 import "@rails/actiontext"
+require("trix")
+require("@rails/actiontext")
