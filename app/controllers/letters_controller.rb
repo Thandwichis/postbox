@@ -34,9 +34,9 @@ class LettersController < ApplicationController
 
   def show
     @letter = Letter.find(params[:id])
-  if @letter.expired?
-    redirect_to letters_path, alert: "This letter has expired."
-  else
+  # if @letter.expired?
+  #   redirect_to letters_path, alert: "This letter has expired."
+  # else
     # Redirect user if they're not the recipient of the letter
     redirect_to(root_path, alert: 'You do not have permission to view this letter.') unless current_user == @letter.receiver
     # Assuming @letter is set using a before_action
