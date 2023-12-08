@@ -1,5 +1,12 @@
 /* Trix Editor Enhancements */
-/* Trix Editor Enhancements */
+/* Hide specific buttons in the Trix Editor Toolbar */
+.trix-button--icon-code,.trix-button--icon-strikethrough,.trix-button--icon-undo,.trix-button--icon-redo, .trix-button--icon-quote {
+  display: none;
+}
+
+
+
+
 .trix-toolbar {
   background-color: #f3f3f3;
   border-bottom: 1px solid #d1d1d1;
@@ -19,6 +26,7 @@
   font-size: 14px;
   margin-bottom: 2px; /* Add some space between wrapped buttons */
 }
+
 
 .trix-editor {
   border: 1px solid #d1d1d1;
