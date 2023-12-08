@@ -1,33 +1,33 @@
 /* Trix Editor Enhancements */
 .trix-toolbar {
-  background-color: #f3f3f3; /* Light gray background for toolbar */
-  border-bottom: 1px solid #d1d1d1; /* Separator between toolbar and editor */
-  padding: 8px; /* Padding around toolbar items */
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #d1d1d1;
+  padding: 8px;
 }
 
 .trix-button-group {
-  margin-right: 5px; /* Spacing between button groups */
+  margin-right: 5px;
 }
 
 .trix-button {
-  color: #333; /* Darker text for better contrast */
-  font-size: 14px; /* Slightly larger font for readability */
+  color: #333;
+  font-size: 14px;
 }
 
 .trix-editor {
-  border: 1px solid #d1d1d1; /* Border around the editor content */
-  padding: 10px; /* Padding inside the editor */
-  min-height: 150px; /* Minimum height for the editor */
-  background-color: #fff; /* White background for the editor content */
+  border: 1px solid #d1d1d1;
+  padding: 10px;
+  min-height: 150px;
+  background-color: #fff;
 }
 
 /* Image and Gallery Styling */
 .trix-content .attachment-gallery > action-text-attachment,
 .trix-content .attachment-gallery > .attachment {
   flex: 1 0 33%;
-  padding: 0.5em; /* Consistent padding around images */
+  padding: 0.5em;
   max-width: 33%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow for depth */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
@@ -41,41 +41,41 @@
 .trix-content action-text-attachment .attachment {
   padding: 0;
   max-width: 80%;
-  border: 1px solid #ccc; /* Border for attachments */
+  border: 1px solid #ccc;
 }
+
 /* Hide Image Details in Trix Editor */
 .trix-content action-text-attachment {
-  display: block; /* Ensures attachments are displayed correctly */
+  display: block;
 }
 
 .trix-content action-text-attachment::before,
 .trix-content action-text-attachment::after {
-  display: none; /* Hides before and after content (usually metadata) */
+  display: none;
 }
 
 .trix-content action-text-attachment figcaption {
-  display: none; /* Hides the caption (if any) under the image */
+  display: none;
 }
-
 
 /* Content Styling */
 .trix-content {
-  line-height: 1.6; /* Improved line height for readability */
-  color: #333; /* Darker color for better readability */
-  font-size: 16px; /* Slightly larger font size */
+  line-height: 1.6;
+  color: #333;
+  font-size: 16px;
 }
 
 .trix-content p {
-  margin-bottom: 1em; /* Space between paragraphs */
+  margin-bottom: 1em;
 }
 
 .trix-content a {
-  color: #41708c; /* Style for links */
-  text-decoration: underline; /* Underline links for clarity */
+  color: #41708c;
+  text-decoration: underline;
 }
 
 .trix-content ul,
 .trix-content ol {
-  padding-left: 20px; /* Indentation for lists */
-  margin-bottom: 1em; /* Space after lists */
+  padding-left: 20px;
+  margin-bottom: 1em;
 }

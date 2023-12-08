@@ -4,13 +4,14 @@ body {
     background-color: #D8B297;
     font-family: 'Lato', sans-serif;
 }
-/* Additional styles for the letter form */
+
+/* Styles for the letter form */
 .letter-form {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Adjust as necessary */
+    max-width: 600px;
     margin: auto;
 }
 
@@ -71,7 +72,6 @@ body {
     white-space: pre-line; /* Respect line breaks in content */
 }
 
-
 a {
     color: #41708c;
     text-decoration: none;
@@ -101,121 +101,114 @@ a:hover {
 .envelope-list {
     list-style-type: none;
     padding: 0;
-  }
-  
-  /* Styles for individual envelopes */
-  .index-envelope {
-      background-color: #528CA2;
-      width: 320px; /* Adjust width as needed */
-      height: 200px; /* Adjust height as needed */
-      margin: 10px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer; /* Change cursor on hover */
-  }
-  .index-envelope::after {
+}
+
+/* Styles for individual envelopes */
+.index-envelope {
+    background-color: #528CA2;
+    width: 320px;
+    height: 200px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.index-envelope::after {
     content: '';
     position: absolute;
-    top: 10px; /* Adjust as necessary */
-    right: 10px; /* Adjust as necessary */
-    width: 50px; /* Size of the stamp */
-    height: 50px; /* Size of the stamp */
-    background-image: url('postage_stamp_one_penny.png'); /* Path to your stamp image */
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url('postage_stamp_one_penny.png');
     background-size: cover;
     z-index: 2;
 }
-  
-  .index-envelope-info {
-      text-align: center;
-      position: absolute;
-      z-index: 2;
-  }
-  
-  .envelope-link {
-      text-decoration: none; /* Remove underline from links */
-      color: inherit; /* Inherit text color */
-  }
-/* Styles for unread letters list */
-.envelope-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  /* Styles for read letters list */
-  .paper-list {
+
+.index-envelope-info {
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+}
+
+.envelope-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Styles for read letters list */
+.paper-list {
     display: flex;
-    overflow-x: auto; /* Horizontal scrolling */
+    overflow-x: auto;
     padding-bottom: 20px;
-  }
-  
-  .paper-sheet {
+}
+
+.paper-sheet {
     background-color: white;
     width: 425px;
-    height:550px;
+    height: 550px;
     margin: 10px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in width and height */
-  }
-  
-  .paper-link {
+    box-sizing: border-box;
+}
+
+.paper-link {
     text-decoration: none;
     color: #41708c;
-  }
-  
-  .paper-link:hover {
+}
+
+.paper-link:hover {
     color: #000000;
-  }
-  
+}
 
 .index-envelope li {
     list-style-type: none;
 }
 
-
-
 /* Styles for images */
 .link-images {
     display: flex;
-    flex-direction: column; /* Default to vertical stacking */
-    align-items: center; /* Center images horizontally */
-    justify-content: space-evenly; /* Evenly distribute space around images */
-    margin-bottom: 40px; /* Space below the image container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
 }
 
 .link-images img {
-    width: 300px; /* Adjust as needed */
-    height: 300px; /* Adjust as needed */
+    width: 300px;
+    height: 300px;
     object-fit: cover;
-    margin-bottom: 20px; /* Margin between images */
+    margin-bottom: 20px;
 }
 
 @media (max-width: 767px) {
     .link-images img {
-        margin-bottom: 40px; /* Increased margin for mobile */
+        margin-bottom: 40px;
     }
 }
 
 @media (min-width: 768px) {
     .link-images {
-        flex-direction: row; /* Images next to each other on desktop */
-        justify-content: space-evenly; /* Evenly distribute space around images */
-        flex-wrap: wrap; /* Enable wrapping of items */
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
     }
 
     .link-images img {
-        margin-bottom: 20px; /* Consistent margin for bottom */
-        margin-right: 20px; /* Margin between images horizontally */
+        margin-bottom: 20px;
+        margin-right: 20px;
     }
 
     .link-images img:last-child {
-        margin-right: 0; /* Remove right margin for the last image */
+        margin-right: 0;
     }
 }
