@@ -3,10 +3,12 @@
   background-color: #f3f3f3;
   border-bottom: 1px solid #d1d1d1;
   padding: 8px;
+  flex-wrap: wrap; /* Allow toolbar items to wrap */
 }
 
 .trix-button-group {
   margin-right: 5px;
+  flex-wrap: wrap; /* Allow buttons within groups to wrap */
 }
 
 .trix-button {
@@ -19,6 +21,17 @@
   padding: 10px;
   min-height: 150px;
   background-color: #fff;
+}
+
+/* Additional responsive styles */
+@media (max-width: 767px) {
+  .trix-toolbar {
+    justify-content: center; /* Center toolbar items on small screens */
+  }
+
+  .trix-button-group {
+    margin-bottom: 5px; /* Space between wrapped button groups */
+  }
 }
 
 /* Image and Gallery Styling */
@@ -47,6 +60,8 @@
 /* Hide Image Details in Trix Editor */
 .trix-content action-text-attachment {
   display: block;
+  max-width:30%;
+
 }
 
 .trix-content action-text-attachment::before,
