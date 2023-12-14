@@ -4,8 +4,14 @@
     "icons": [
       {
         "src": "app/assets/images/mailbox-unread-icon.PNG",
-        "type": "image/png",
-        "sizes": "192x192"
+        "type": "image/PNG",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "app/assets/images/typewriter.PNG",
+        "type": "image/PNG",
+        "sizes": "670x670"
       }
     ],
     "start_url": "/",
