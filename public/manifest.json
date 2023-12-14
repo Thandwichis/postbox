@@ -3,10 +3,10 @@
   "name": "Postbox Messaging App",
   "icons": [
     {
-      "src": "/icons/mailbox-unread-icon.PNG", 
-      "type": "image/png", 
+      "src": "/icons/mailbox-unread-icon.PNG",
+      "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/icons/typewriter.PNG",
@@ -18,5 +18,7 @@
   "background_color": "#41708C",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#D8B297"
+  "theme_color": "#D8B297",
+  "id": "postbox-app",
+  "description": "Rediscover the charm of traditional communication with the Postbox Messaging App, a unique platform that brings the essence of snail mail into the digital age. Designed to provide a nostalgic yet modern messaging experience, Postbox offers a refreshing break from the instantaneity of standard messaging apps."
 }
