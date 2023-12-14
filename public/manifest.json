@@ -6,7 +6,7 @@
       "src": "/icons/mailbox-unread-icon.PNG", 
       "type": "image/png", 
       "sizes": "192x192",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/icons/typewriter.PNG",
