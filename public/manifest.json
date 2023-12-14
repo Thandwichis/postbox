@@ -1,23 +1,22 @@
 {
-    "short_name": "Postbox",
-    "name": "Postbox Messaging App",
-    "icons": [
-      {
-        "src": "/icons/mailbox-unread-icon.PNG",
-        "type": "image/PNG",
-        "sizes": "192x192",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "/icons/typewriter.PNG",
-        "type": "image/PNG",
-        "sizes": "670x670"
-      }
-    ],
-    "start_url": "/",
-    "background_color": "#41708C",
-    "display": "standalone",
-    "scope": "/",
-    "theme_color": "#D8B297"
-  }
-  
+  "short_name": "Postbox",
+  "name": "Postbox Messaging App",
+  "icons": [
+    {
+      "src": "/icons/mailbox-unread-icon.png", 
+      "type": "image/png", 
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/typewriter.png",
+      "type": "image/png",
+      "sizes": "670x670"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#41708C",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#D8B297"
+}
