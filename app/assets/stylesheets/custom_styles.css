@@ -4,6 +4,14 @@ body {
     background-color: #D8B297;
     font-family: 'Lato', sans-serif;
 }
+img {
+    max-width: 100%;
+    display: block;
+}
+p {
+    max-width: 100%;
+    font-family: 'Lato', sans-serif; 
+}
 
 /* Styles for the letter form */
 .letter-form {
@@ -29,6 +37,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 20px;
+    font-family: Nanum Brush Script;
 }
 
 .form-submit {
@@ -61,7 +70,7 @@ body {
     padding: 40px; /* Padding inside the container */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional shadow for effect */
     box-sizing: border-box; /* Include padding in width/height calculation */
-    font-family: 'Lato', sans-serif; /* Maintain consistent font */
+    font-family: Nanum Brush Script; /* Maintain consistent font with letters */
 }
 
 .letter-details {

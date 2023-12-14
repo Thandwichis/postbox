@@ -3,15 +3,9 @@
     "name": "Postbox Messaging App",
     "icons": [
       {
-        "src": "mailbox-unread-icon.PNG",
+        "src": "app/assets/images/mailbox-unread-icon.PNG",
         "type": "image/PNG",
-        "sizes": "192x192",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "typewriter.PNG",
-        "type": "image/PNG",
-        "sizes": "670x670"
+        "sizes": "192x192"
       }
     ],
     "start_url": "/",
