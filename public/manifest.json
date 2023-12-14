@@ -3,13 +3,13 @@
   "name": "Postbox Messaging App",
   "icons": [
     {
-      "src": "/icons/mailbox-unread-icon.png", 
+      "src": "/icons/mailbox-unread-icon.PNG", 
       "type": "image/png", 
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "/icons/typewriter.png",
+      "src": "/icons/typewriter.PNG",
       "type": "image/png",
       "sizes": "670x670"
     }
