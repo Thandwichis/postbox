@@ -1,0 +1,17 @@
+{
+    "short_name": "Postbox",
+    "name": "Postbox Messaging App",
+    "icons": [
+      {
+        "src": "app/assets/images/mailbox-unread-icon.PNG",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#41708C",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#D8B297"
+  }
+  

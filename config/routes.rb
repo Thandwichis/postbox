@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # end
   
   get '/letters/:id/open', to: 'letters#open_letter', as: :open_letter
+  get '/service_worker.js', to: 'home#service_worker'
 
   # Defines the root path route ("/")
   # root "articles#index"
