@@ -18,8 +18,8 @@ class LettersController < ApplicationController
     if @letter.save
       use_stamp_for_letter(@letter)
       SendLetterJob.set(wait: @letter.calculate_delivery_time).perform_later(@letter.id)
-      redirect_to root_path, notice: 'Letter was successfully created and will be sent in '+ @letter.calculate_delivery_time.to_s+' seconds.'
-    else
+      formatted_time = view_context.humanize_seconds(@letter.calculate_delivery_time)
+      redirect_to root_path, notice: "Letter was successfully created and will be sent in #{formatted_time}."    else
       render :new
     end
   end

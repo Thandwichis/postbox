@@ -9,16 +9,17 @@ class Letter < ApplicationRecord
     def calculate_delivery_time
       case stamp.value
       when 5
-        5.seconds
+        1.hour
       when 2
-        15.seconds
+        1.day
       when 1
-        30.seconds
+        1.week
       else
         # Default delivery time if no valid stamp is found
-        1.minute
+        2.days
       end
     end
+    
  
     # Add validations as needed, e.g., presence of content
     validates :content, presence: true
