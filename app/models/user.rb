@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
          has_many :sent_letters, class_name: 'Letter', foreign_key: 'sender_id'
          has_many :received_letters, class_name: 'Letter', foreign_key: 'receiver_id'
-end
+         has_many :user_stamps
+         has_many :stamps, through: :user_stamps
+
+ end

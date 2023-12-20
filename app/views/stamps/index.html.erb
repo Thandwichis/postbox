@@ -1,0 +1,28 @@
+<h1>Stamp Store</h1>
+<% if user_signed_in? %>
+  <div class="user-stamps">
+    <h2>Your Stamps</h2>
+    <ul>
+      <% current_user.user_stamps.includes(:stamp).group_by(&:stamp_id).each do |stamp_id, user_stamps| %>
+        <% total_quantity = user_stamps.sum(&:quantity) %>
+        <% stamp = user_stamps.first.stamp %>
+        <li>
+          <%= stamp.name %> - Quantity: <%= total_quantity %>
+          <%= image_tag stamp.image_url, alt: stamp.name, height: '50' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="stamp-store">
+
+<%= button_to 'Add 5 Cents', add_cents_users_path, method: :post, class:"add-cents-btn" %>
+
+  <% @stamps.each do |stamp| %>
+    <div class="stamp-item">
+      <%= image_tag stamp.image_url, alt: stamp.name %>      <p><%= stamp.name %></p>
+      <p>Cost: <%= stamp.value %> Cents</p>
+      <%= button_to 'Buy', buy_stamp_stamp_path(stamp), method: :post %>
+    </div>
+  <% end %>
+</div>

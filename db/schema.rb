@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_08_183040) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_20_031203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
@@ -92,7 +92,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_183040) do
     t.datetime "expires_at"
     t.boolean "saved"
     t.integer "stamp_type", default: 1
+    t.bigint "stamp_id"
     t.index ["slug"], name: "index_letters_on_slug", unique: true
+    t.index ["stamp_id"], name: "index_letters_on_stamp_id"
+  end
+
+  create_table "stamps", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_stamps", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "stamp_id", null: false
+    t.integer "quantity", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stamp_id"], name: "index_user_stamps_on_stamp_id"
+    t.index ["user_id"], name: "index_user_stamps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -113,4 +133,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_08_183040) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "letters", "stamps"
+  add_foreign_key "user_stamps", "stamps"
+  add_foreign_key "user_stamps", "users"
 end

@@ -15,6 +15,16 @@
     <%= form.rich_text_area :content, class: "trix-content" %>
   </div>
 
+  <div class="field">
+    <%= form.label :stamp_id, 'Choose a Stamp', class: "form-label" %>
+    <%= form.collection_select :stamp_id, current_user.user_stamps.select('DISTINCT ON (stamp_id) *').includes(:stamp).collect { |us| [us.stamp.name, us.stamp.id] }, :last, :first, { prompt: 'Select a Stamp' }, { class: "form-select" } %>
+    <% if @letter.errors[:stamp_id].any? %>
+      <div class="error">
+        <%= @letter.errors.full_messages_for(:stamp_id).join(', ') %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit 'Send Letter', class: "form-submit" %>
   </div>

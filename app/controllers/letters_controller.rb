@@ -72,6 +72,7 @@ end
 
   
   def letter_params
-    params.require(:letter).permit(:content,:receiver_id)
+    params.require(:letter).permit(:receiver_id, :content, :stamp_id)
   end
+  
 end

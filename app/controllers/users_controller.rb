@@ -32,7 +32,11 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
     end
-  
+    # DELETE THIS BUTTON/Function
+  def add_cents
+    current_user.update(cents: current_user.cents + 5)
+    redirect_back(fallback_location: root_path, notice: '5 Cents added successfully!')
+  end
     private
   
     def user_params
