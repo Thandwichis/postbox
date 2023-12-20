@@ -43,7 +43,7 @@
   <h2>Sent Letters</h2>
   <div class="sent-letters-list">
     <% @sent_letters.each do |letter| %>
-      <div class="sent-letter-item">
+      <div class="sent-letter-item <%= 'pending' if letter.status == 'pending' %>">
         <strong>To:</strong> <%= letter.receiver.username %><br>
         <strong>Status:</strong> <%= letter.status %><br>
         

@@ -8,6 +8,8 @@ class Letter < ApplicationRecord
 
     def calculate_delivery_time
       case stamp.value
+      when 15
+        5.minutes
       when 5
         1.hour
       when 2
