@@ -184,8 +184,7 @@ a:hover {
 .sent-letters-list {
     padding: 10px;
     background-color: #f9f9f9; /* Light background for the list */
-    border-radius: 5px;
-}
+  }
   
   .sent-letter-item {
     border: 1px solid #ddd; /* Border for each letter item */
@@ -193,6 +192,14 @@ a:hover {
     padding: 10px;
     border-radius: 5px;
     background-color: #fff; /* White background for each item */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .sent-letter-item img {
+    max-width: 50px; /* Adjust size as needed */
+    margin-right: 10px;
   }
   
   .sent-letter-item strong {
@@ -203,6 +210,7 @@ a:hover {
   .sent-letter-item.pending {
     background-color: #ffecd1; /* Light orange background for pending letters */
   }
+  
   
 /* Styles for individual envelopes */
 .index-envelope {
