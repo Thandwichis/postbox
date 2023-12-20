@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require actiontext
+ *= require_actiontext
+ *= require trix
  */

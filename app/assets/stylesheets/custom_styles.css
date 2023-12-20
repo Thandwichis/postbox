@@ -17,7 +17,6 @@ p {
 .letter-form {
     background-color: white;
     padding: 20px;
-    border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: auto;
@@ -34,10 +33,9 @@ p {
 .trix-content {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 20px;
-    font-family: Nanum Brush Script;
+    /* font-family: Nanum Brush Script; */
 }
 
 .form-submit {
@@ -70,7 +68,7 @@ p {
     padding: 40px; /* Padding inside the container */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional shadow for effect */
     box-sizing: border-box; /* Include padding in width/height calculation */
-    font-family: Nanum Brush Script; /* Maintain consistent font with letters */
+    /* font-family: Nanum Brush Script;  */
 }
 
 .letter-details {
@@ -119,7 +117,6 @@ a:hover {
     height: 200px;
     margin: 10px;
     padding: 20px;
-    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: relative;
     overflow: hidden;
@@ -166,7 +163,6 @@ a:hover {
     margin: 10px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 5px;
     box-sizing: border-box;
 }
 
