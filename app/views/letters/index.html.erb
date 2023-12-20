@@ -43,11 +43,18 @@
   <h2>Sent Letters</h2>
   <div class="sent-letters-list">
     <% @sent_letters.each do |letter| %>
+      <% if letter.stamp.present? %>
+        <%= image_tag(letter.stamp.image_url, alt: letter.stamp.name) %>
+      <% end %>
       <div class="sent-letter-item <%= 'pending' if letter.status == 'pending' %>">
         <strong>To:</strong> <%= letter.receiver.username %><br>
         <strong>Status:</strong> <%= letter.status %><br>
         
-        <strong>Will be sent at:</strong> <%= letter.delivery_time ? letter.delivery_time.strftime("%d %B %Y %H:%M") : "Not available" %><br>
+        <% if letter.status == 'pending' %>
+           <strong>Will be sent at:</strong> <%= letter.delivery_time ? letter.delivery_time.strftime("%d %B %Y %H:%M") : "Not available" %><br>
+        <% else %>
+          <strong>Delivered at:</strong> <%= letter.delivery_time ? letter.delivery_time.strftime("%d %B %Y %H:%M") : "Not available" %><br>
+        <% end %>
       </div>
     <% end %>
   </div>
