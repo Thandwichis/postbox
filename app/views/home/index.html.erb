@@ -1,9 +1,11 @@
 <div class="container">
 
 <div class="link-images">
-<% if current_user.last_cents_added_on.nil? || current_user.last_cents_added_on < Date.today %>
- 
-  <%= button_to 'Add 5 Cents', add_cents_users_path, method: :post %>
+<% if user_signed_in? %>
+  <% if current_user.last_cents_added_on.nil? || current_user.last_cents_added_on < Date.today %>
+  
+    <%= button_to 'Add 5 Cents', add_cents_users_path, method: :post %>
+  <% end %>
 <% end %>
   <%= link_to image_tag("typewriter.PNG", alt: "Draft New Letter"), new_letter_path %>
   <%= link_to image_tag("mailbox-unread.PNG", alt: "View Received Letters"), letters_path %>
