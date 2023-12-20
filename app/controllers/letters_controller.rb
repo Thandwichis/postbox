@@ -2,21 +2,23 @@ class LettersController < ApplicationController
   
   before_action :authenticate_user!
   before_action :set_letter, only: [:show, :destroy]
+
+  
   def new
     @letter = Letter.new
   end
 
   def create
     @letter = current_user.sent_letters.build(letter_params)
-    # Set receiver_username here if necessary, for example:
+    @letter.status = 'pending'
+    @letter.delivery_time = Time.zone.now + @letter.calculate_delivery_time    # Set receiver_username here if necessary, for example:
     # receiver = User.find_by(username: params[:letter][:receiver_username])
     # @letter.receiver_id = receiver.id if receiver
-  
-    @letter.status = 'pending'
-    @letter.delivery_time = Time.zone.now + 15.seconds
+
     if @letter.save
-      SendLetterJob.set(wait: 15.seconds).perform_later(@letter.id)
-      redirect_to root_path, notice: 'Letter was successfully created and will be sent in 15 seconds.'
+      use_stamp_for_letter(@letter)
+      SendLetterJob.set(wait: @letter.calculate_delivery_time).perform_later(@letter.id)
+      redirect_to root_path, notice: 'Letter was successfully created and will be sent in '+ @letter.calculate_delivery_time.to_s+' seconds.'
     else
       render :new
     end
@@ -27,6 +29,8 @@ class LettersController < ApplicationController
     @letter.update(saved: !@letter.saved)
     redirect_to letter_path(@letter)
   end
+
+
   
 
   def show
@@ -38,7 +42,7 @@ class LettersController < ApplicationController
       @letter.update(read_at: Time.current)
     end
   
-end
+  end
   
   def index
     # Only show letters that have been delivered
@@ -65,6 +69,18 @@ end
 
   private
   
+
+  def use_stamp_for_letter(letter)
+    stamp = current_user.user_stamps.find_by(stamp_id: letter.stamp_id)
+    if stamp.present?
+      stamp.quantity -= 1
+      if stamp.quantity.zero?
+        stamp.destroy
+      else
+        stamp.save
+      end
+    end
+  end
   def set_letter
     @letter = Letter.friendly.find(params[:id])
   end

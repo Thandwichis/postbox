@@ -10,5 +10,13 @@ class User < ApplicationRecord
          has_many :received_letters, class_name: 'Letter', foreign_key: 'receiver_id'
          has_many :user_stamps
          has_many :stamps, through: :user_stamps
+         validate :cents_limit
 
+          private
+
+          def cents_limit
+            if cents > 15
+              errors.add(:cents, "cannot be more than 15")
+            end
+          end
  end

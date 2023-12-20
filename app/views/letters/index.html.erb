@@ -6,7 +6,12 @@
       <% @unread_letters.each do |letter| %>
         <%= link_to open_letter_path(letter), class: 'envelope-link' do %>
           <li class="index-envelope">
-            <div class="index-envelope-info">
+            <% if letter.stamp.present? %>
+              <div class="stamp">
+                <%= image_tag(letter.stamp.image_url, alt: letter.stamp.name) %>
+              </div>
+            <% end %>
+              <div class="index-envelope-info">
               <strong>From:</strong> <%= letter.sender.username %><br>
               <strong>Sent at:</strong> <%= letter.created_at.strftime("%d %B %Y %H:%M") %><br>
             </div>
