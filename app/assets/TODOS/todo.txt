@@ -1,0 +1,1 @@
+Add sent letters view in the letters/index.html.erb
