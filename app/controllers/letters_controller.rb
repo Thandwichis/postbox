@@ -47,10 +47,9 @@ class LettersController < ApplicationController
   def index
     # Only show letters that have been delivered
     @received_letters = current_user.received_letters.where(status: 'delivered').order(created_at: :desc)
-
     @read_letters = @received_letters.where.not(read_at: nil).order(created_at: :desc)
     @unread_letters = @received_letters.where(read_at: nil).order(created_at: :desc)
-
+    @sent_letters = current_user.sent_letters.order(created_at: :desc)
 
   end
   def open_letter

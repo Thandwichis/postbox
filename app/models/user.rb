@@ -11,12 +11,20 @@ class User < ApplicationRecord
          has_many :user_stamps
          has_many :stamps, through: :user_stamps
          validate :cents_limit
+         enum role: [:user, :admin]
+         after_initialize :set_default_role, if: :new_record?
 
           private
-
+          
+          def set_default_role
+            self.role ||= :user
+          end
           def cents_limit
+            return if admin?
+            
             if cents > 15
               errors.add(:cents, "cannot be more than 15")
             end
           end
+          
  end

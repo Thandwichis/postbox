@@ -39,3 +39,16 @@
     <p>You have no letters.</p>
   <% end %>
 </div>
+<% if @sent_letters.any? %>
+  <h2>Sent Letters</h2>
+  <div class="sent-letters-list">
+    <% @sent_letters.each do |letter| %>
+      <div class="sent-letter-item">
+        <strong>To:</strong> <%= letter.receiver.username %><br>
+        <strong>Status:</strong> <%= letter.status %><br>
+        
+        <strong>Will be sent at:</strong> <%= letter.delivery_time ? letter.delivery_time.strftime("%d %B %Y %H:%M") : "Not available" %><br>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -28,13 +28,21 @@ class UsersController < ApplicationController
         render :edit
       end
     end
+    def admin_only
+      redirect_to(root_path, alert: "Not authorized") unless current_user.admin?
+    end
+    
   
     def show
       @user = User.find(params[:id])
     end
     # DELETE THIS BUTTON/Function
     def add_cents
-      if current_user.last_cents_added_on.nil? || current_user.last_cents_added_on < Date.today
+      if current_user.admin?
+        # Admin users can add 5 cents without restrictions
+        current_user.update(cents: current_user.cents + 5)
+        redirect_back(fallback_location: root_path, notice: '5 Cents added successfully!')
+      elsif current_user.last_cents_added_on.nil? || current_user.last_cents_added_on < Date.today
         new_cents_value = current_user.cents + 5
         if new_cents_value <= 15
           current_user.update(cents: new_cents_value, last_cents_added_on: Date.today)
@@ -46,6 +54,7 @@ class UsersController < ApplicationController
         redirect_back(fallback_location: root_path, alert: 'You can only add 5 Cents once per day.')
       end
     end
+    
     private
     
     def user_params
