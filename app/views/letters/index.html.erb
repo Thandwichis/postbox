@@ -48,8 +48,8 @@
         <% if letter.stamp.present? %>
         <%= image_tag(letter.stamp.image_url, alt: letter.stamp.name) %>
         <% end %>
-        <strong>To:</strong> <%= letter.receiver.username %><br>
-        <strong>Status:</strong> <%= letter.status %><br>
+        <strong>To: <h3><%= letter.receiver.username %></h3></strong><br>
+        <strong>Status:</strong> <h4><%= letter.status %></h4><br>
         
         <% if letter.status == 'pending' %>
            <strong>Will be sent at:</strong> <%= letter.delivery_time ? letter.delivery_time.strftime("%d %B %Y %H:%M") : "Not available" %><br>

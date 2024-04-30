@@ -1,0 +1,8 @@
+Sign into heoku (must use authenticator)
+Start both dynos,
+Attach DATABASE (addons, heroku postgrsql)
+Attach OPENREDIS (addons, openredis)
+go into this project and run 'heroku run rails db:migrate --app postbox-app' to add database rules.
+
+go into rails bash and use command 'rails db:seed'
+after all admins sign in to postbox, use command in rails console 'User.update_all(role: :admin)'
